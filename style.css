@@ -1,0 +1,94 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+  overflow-x: hidden;
+}
+
+#music-player {
+  width: 100%;
+  height: 98vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding-top: 10px;
+}
+
+#album-art {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Container lirik */
+#lyrics-container {
+  width: 90%;
+  height: 53vh;
+  overflow: hidden; /* scroll diganti transform */
+  position: relative;
+}
+
+#lyrics-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.5s ease;
+}
+
+#lyrics-track h2 {
+  font-size: 18px;
+  margin: 20px 0;
+  opacity: 0.3;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+#lyrics-track h2.current {
+  font-size: 28px;
+  color: white;
+  opacity: 1;
+}
+
+#player-controls {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 25px;
+  
+}
+
+#progress-bar {
+  flex: 1;
+  height: 8px;
+  border: 1px solid #222;
+  background: #333;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+#progress {
+  height: 100%;
+  width: 0%;
+  background: red;
+  border-radius: 4px;
+}
+
+/* lingkaran */
+#progress-handle {
+  width: 16px;
+  height: 16px;
+  background: red;
+  border: 1px solid   black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 0%; /* mulai di 0% */
+  pointer-events: none; /* supaya klik tetap ke progress bar */
+}
