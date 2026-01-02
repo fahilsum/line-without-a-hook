@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Line Without a Hook</title>
-    <!-- Link font Montserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
-    <!-- Link ke file CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Line Without a Hook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
-<div id="music-player">
-  <img id="album-art" src="https://fahilsum.github.io/playlist/album/RickyMontgomery-LineWithoutAHook.jpg" alt="Album Art">
+  <div id="music-player">
+    <img id="album-art" src="https://fahilsum.github.io/playlist/album/RickyMontgomery-LineWithoutAHook.jpg"
+      alt="Album Art">
 
-  <div id="lyrics-container">
-    <div id="lyrics-track">
-      <!-- Lirik akan di-render via JS -->
+    <div id="lyrics-container">
+      <div id="lyrics-track">
+      </div>
     </div>
+
+    <div id="player-controls">
+      <button id="play" style="cursor: pointer;">▶️</button>
+      <button id="repeat" style="cursor: pointer;">🔁</button>
+      <div id="progress-bar">
+        <div id="progress"></div>
+        <div id="progress-handle"></div>
+      </div>
+      <span id="current-time">0:00</span> / <span id="total-time">4:10</span>
+    </div>
+
+    <audio id="audio">
+      <source src="https://fahilsum.github.io/playlist/music/RickyMontgomery-LineWithoutAHook.mp3" type="audio/mpeg">
+    </audio>
   </div>
 
-  <div id="player-controls">
-    <button id="play" style="cursor: pointer;">▶️</button>
-    <button id="repeat" style="cursor: pointer;">🔁</button>
-    <div id="progress-bar">
-      <div id="progress"></div>
-      <div id="progress-handle"></div><!--lingkaran-->
-    </div>
-    <span id="current-time">0:00</span> / <span id="total-time">4:10</span>
-  </div>
-
-  
-
-  <audio id="audio">
-    <source src="https://fahilsum.github.io/playlist/music/RickyMontgomery-LineWithoutAHook.mp3" type="audio/mpeg">
-  </audio>
-</div>
-
-<script src="script.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
+
 </html>
-
-
