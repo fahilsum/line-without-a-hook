@@ -6,8 +6,6 @@ const currentTimeEl = document.getElementById('current-time');
 const totalTimeEl = document.getElementById('total-time');
 const lyricsTrack = document.getElementById('lyrics-track');
 
-
-// Lirik + waktu mulai (detik)
 const lyrics = [
   {time:0.30, text:"I don't really give a damn about the way you touch me"},
   {time:3.21, text:"When we're alone"},
@@ -64,24 +62,20 @@ const lyrics = [
   {time:232.15, text:"I swear that I would pull you from the tide"}
 ];
 
-// Render lirik
 lyrics.forEach(line => {
   const h2 = document.createElement('h2');
   h2.textContent = line.text;
   lyricsTrack.appendChild(h2);
 });
 
-// Format mm:ss
 function formatTime(sec){
   const m = Math.floor(sec/60);
   const s = Math.floor(sec%60);
   return `${m}:${s<10?'0':''}${s}`;
 }
 
-// Update total duration
 audio.addEventListener('loadedmetadata', ()=>{ totalTimeEl.textContent = formatTime(audio.duration); });
 
-// Play / Pause
 playBtn.addEventListener('click', ()=>{
   if(audio.paused){
     audio.play();
@@ -92,7 +86,6 @@ playBtn.addEventListener('click', ()=>{
   }
 });
 
-// Update progress & highlight
 audio.addEventListener('timeupdate', ()=>{
   const current = audio.currentTime;
   currentTimeEl.textContent = formatTime(current);
@@ -109,46 +102,35 @@ audio.addEventListener('timeupdate', ()=>{
     }
   }
 
-  // scroll track
   const containerHeight = document.getElementById('lyrics-container').clientHeight;
   const offset = allH2[currentIndex].offsetTop;
   const track = lyricsTrack;
   const trackHeight = lyricsTrack.scrollHeight;
   let translateY = offset - containerHeight/2 + allH2[currentIndex].offsetHeight/2;
 
-  // Batasi translate agar tidak over-scroll
   translateY = Math.max(0, Math.min(translateY, trackHeight - containerHeight));
   track.style.transform = `translateY(-${translateY}px)`;
 });
 
-// Seek by progress bar
 progressBar.addEventListener('click', e=>{
   const rect = progressBar.getBoundingClientRect();
   const clickX = e.clientX - rect.left;
   audio.currentTime = (clickX / rect.width) * audio.duration;
 });
 
-
-//lingkaran
-
 const handle = document.getElementById('progress-handle');
 
-// Update progress & handle secara sinkron dengan audio
 audio.addEventListener('timeupdate', ()=>{
   const current = audio.currentTime;
   const duration = audio.duration;
   const percent = (current / duration) * 100;
 
-  // update progress bar
   progress.style.width = percent + '%';
 
-  // update handle
   handle.style.left = percent + '%';
 
-  // update waktu
   currentTimeEl.textContent = formatTime(current);
 
-  // === Highlight lirik & scroll tetap sama seperti sebelumnya ===
   const allH2 = lyricsTrack.querySelectorAll('h2');
   let currentIndex = 0;
   for(let i=0;i<lyrics.length;i++){
@@ -169,8 +151,6 @@ audio.addEventListener('timeupdate', ()=>{
   track.style.transform = `translateY(-${translateY}px)`;
 });
 
-
-//tombol repeat song
 const repeatBtn = document.getElementById('repeat');
 let isRepeat = false;
 
@@ -180,3 +160,4 @@ repeatBtn.addEventListener('click', () => {
   repeatBtn.textContent = isRepeat ? '🔂' : '🔁' ;
   repeatBtn.style.color = isRepeat ? 'red' : 'black'; // indikator repeat aktif
 });
+
