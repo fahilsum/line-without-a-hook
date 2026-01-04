@@ -24,11 +24,10 @@ html, body {
   margin-bottom: 20px;
 }
 
-/* Container lirik */
 #lyrics-container {
   width: 90%;
   height: 53vh;
-  overflow: hidden; /* scroll diganti transform */
+  overflow: hidden;
   position: relative;
 }
 
@@ -59,7 +58,6 @@ html, body {
   align-items: center;
   gap: 10px;
   margin-top: 25px;
-  
 }
 
 #progress-bar {
@@ -79,17 +77,17 @@ html, body {
   border-radius: 4px;
 }
 
-/* lingkaran */
 #progress-handle {
   width: 16px;
   height: 16px;
   background: red;
-  border: 1px solid   black;
+  border: 1px solid black;
   border-radius: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  left: 0%; /* mulai di 0% */
-  pointer-events: none; /* supaya klik tetap ke progress bar */
+  left: 0%;
+  pointer-events: none;
 }
+
 
